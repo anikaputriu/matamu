@@ -31,7 +31,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
         <div id="main">
-            <div class="section section_banner"></div>
+            <div class="section section_banner">
+                <div class="left_section">
+                    <p class="title_banner">Tes Mata</p>
+                    <p class="sub_title">Jalan-jalan bareng doi ke Braga</br>
+                        Pulangnya mampir beli jamu</p>
+                    <p class="sub_title">Jalan-jalan bareng doi ke Braga</br>
+                        Pulangnya mampir beli jamu</p>
+                    <a href="<?php echo base_url() ?>blind_test" onclick="return confirm('Udah siap?, berisikan 10 soal untuk mengetest rabun mata');">
+                        <div class="button_fill">
+                            <p>Masuk</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right_section">
+                    <div class="banner">
+                        <div class="banner_image">
+                            <div class="image_bg"></div>
+                            <div class="image" style="background-image: url('<?php echo base_url() ?>assets/images/banner_image.jpg')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="section section_feature">
                 <div class="section_title">
@@ -87,29 +108,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
             </div>
 
-            <div class="section section_ask_bot"></div>
+<!--            <div class="section section_ask_bot"></div>-->
         </div>
         <div id="footer">
             <div class="footer_section">
                 <div class="left_section">
                     <div class="logo">
-                        <div class="logo_imager"></div>
-                        <div class="logo_text"></div>
+                        <div class="logo_image" style="background-image: url('<?php echo base_url() ?>assets/images/logo_footer.svg')"></div>
+                        <div class="logo_text">Mata.mu</div>
                     </div>
-
-
-                    <div class="">
-
-                    </div>
-                    <p>test</p>
+                    <p>Selalu Peduli denganmu</p>
                 </div>
                 <div class="right_section">
-                    <p>test</p>
+                    <div class="footer_main">
+                        <div>
+                            <p class="title">Menu</p>
+                            <a href="">Tes Mata</a>
+                            <a href="">Artikel</a>
+                            <a href="">Tanya Bot</a>
+                        </div>
+                        <div>
+                            <p class="title">Tentang</p>
+                            <a href="">Tentang Mata.mu</a>
+                            <a href="">FAQ</a>
+                        </div>
+                        <div>
+                            <p class="title">Tentang</p>
+                            <a href="">Tentang Mata.mu</a>
+                            <a href="">FAQ</a>
+                        </div>
+                        <div>
+                            <p class="title">Kontak Kami</p>
+                            <a href="">081487457836</a>
+                            <a href="">matam.mu@gmail.com</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <p>Copyright 2020 Mata.mu . All Rights Reserved</p>
         </div>
-
         <script
             src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
             integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="

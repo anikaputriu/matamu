@@ -42,6 +42,7 @@ class BlindTest_C extends CI_Controller {
 //        $userId = $this->input->post("userId");
         $answers = $this->input->post("answers");
 
+        //create array ids, from user answers
         $ids = array();
         foreach ($answers as $value){
             array_push($ids, $value["id"]);
@@ -54,6 +55,7 @@ class BlindTest_C extends CI_Controller {
             httpResponse(false, "", $e, 500);
         }
 
+        //get results true or false from user answer
         $results = array();
         foreach ($answers as $value){
 
@@ -78,5 +80,13 @@ class BlindTest_C extends CI_Controller {
         }
 
         httpResponse(true, $results, "", 200);
+    }
+
+    public function blindTest_v(){
+        $this->load->view("blindTest_v");
+    }
+
+    public function result_v(){
+        $this->load->view("blindTestResult_v");
     }
 }

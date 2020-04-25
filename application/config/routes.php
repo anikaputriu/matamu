@@ -53,11 +53,27 @@ $route['default_controller'] = 'home_c/home_v';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+
+/*
+ * [API]
+ */
 $route['api/auth/signin']['post'] = 'auth_c/signin';
 $route['api/auth/signup']['post'] = 'auth_c/signup';
 
 $route['api/blind_test']['get'] = 'blindTest_c/getTest';
 $route['api/blind_test/submit']['post'] = 'blindTest_c/submit';
+/*
+ * [END - API]
+ */
 
+/*
+ * [VIEW]
+ */
 $route['signin']['get'] = 'auth_c/signin_v';
 $route['signup']['get'] = 'auth_c/signup_v';
+
+$route['blind_test']['get'] = 'blindTest_c/blindTest_v';
+$route['blind_test/result']['get'] = 'blindTest_c/result_v';
+/*
+ * [END - VIEW]
+ */

@@ -86,8 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
         </div>
-        <div id="footer"></div>
-
         <script
             src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
             integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
