@@ -1,3 +1,5 @@
+// utils ==========================
+
 const ajaxPromise = (type, url, data) => {
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -19,7 +21,7 @@ const ajaxPromise = (type, url, data) => {
 const newRequestAPI = async (type, url, data) => {
     return new Promise(async (resolve, reject) => {
         try{
-            res = await ajaxPromise(type, API_URL + url, data)
+            res = await ajaxPromise(type, `${BASE_URL}api/${url}`, data)
             resolve(res)
         }
         catch(e){
@@ -27,6 +29,8 @@ const newRequestAPI = async (type, url, data) => {
                 alert("API error not found")
                 reject({})
             }
+
+            console.log(e)
 
             errRes = JSON.parse(e.responseText)
             alert(errRes.message)
@@ -47,25 +51,72 @@ const objToFromData = (obj) => {
     return formData
 }
 
+const redirect = (url) => {
+    $(location).attr("href", `${BASE_URL}${url}`)
+}
+
+const serializeArrToObj = (serializeArr) => {
+    let data = {};
+    $(serializeArr).each(function(index, obj){
+        data[obj.name] = obj.value
+    })
+
+    return data
+}
+
+// end utils ==========================
+
 // client api ==========================
-const loginRequest = async (email, password) => {
-    formData = objToFromData({ email, password })
+
+//not pass form directly
+//construct form to new object to maintain consistency
+
+const signinRequest = async (form) => {
+    formData = objToFromData({
+        email: form.email,
+        password: form.password
+    })
     return await newRequestAPI("POST", "/auth/signin", formData)
 }
 
-
-// signin
-const signin = () => {
-    const email = $("#input_email").val()
-    const password = $("#input_password").val()
-
-    loginRequest(email, password).then((res) => {
-        localStorage.setItem("token", res.data.token)
+const signupRequest = async (form) => {
+    formData = objToFromData({
+        firstName: form.firstName,
+        lastName: form.lastName,
+        phoneNumber: form.phoneNumber,
+        gender: form.gender,
+        email: form.email,
+        password: form.password,
+        address: form.address
     })
+    return await newRequestAPI("POST", "/auth/signup", formData)
 }
 
-$("#submit_signin").click(() => {
-    signin()
-    console.log(API_URL)
+// end - client api ==========================
+
+
+// signin
+$('#signin_form').submit(function(e) {
+    e.preventDefault()
+    form = serializeArrToObj($(this).serializeArray())
+
+    signinRequest(form).then((res) => {
+        localStorage.setItem("token", res.data.token)
+        redirect("")
+    })
 })
 
+// signup
+$('#signup_form').submit(function(e) {
+    e.preventDefault()
+    form = serializeArrToObj($(this).serializeArray())
+
+    if(form.password !== form.confirmPassword){
+        alert("password not match")
+        return
+    }
+
+    signupRequest(form).then((res) => {
+        redirect("signin")
+    })
+})

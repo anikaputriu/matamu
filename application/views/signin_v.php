@@ -40,20 +40,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="auth_form">
                 <form action="" id="signin_form">
                     <p class="input_label">Email</p>
-                    <input type="text" id="input_email">
+                    <input type="text" name="email">
 
                     <p class="input_label">Kata Sandi</p>
-                    <input type="password" id="input_password">
+                    <input type="password" name="password">
+                    <button type="submit" class="auth_button">
+                        <p>Masuk</p>
+                    </button>
                 </form>
-                 <div class="auth_button" id="submit_signin">
-                    <p>Masuk</p>
-                 </div>
             </div>
 
         </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
         <script>
-            const API_URL = "<?php echo base_url() ?>api"
+            const BASE_URL = "<?php echo base_url() ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
     </body>

@@ -38,58 +38,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
             <div class="auth_form">
-                <form action="">
+                <form action="" id="signup_form">
                     <div class="input_dual">
                         <div>
                             <p class="input_label">Nama Depan</p>
-                            <input type="text">
+                            <input type="text" name="firstName" required>
                         </div>
                         <div>
                             <p class="input_label">Nama Belakang</p>
-                            <input type="text">
+                            <input type="text" name="lastName" required>
                         </div>
                     </div>
                     <div class="input_dual">
                         <div>
                             <p class="input_label">Nomor Telepon</p>
-                            <input type="text">
+                            <input type="text" name="phoneNumber" required>
                         </div>
                         <div>
                             <p class="input_label">Jenis Kelamin</p>
-                            <input type="text">
+                            <select name="gender" required>
+                                <option value="male">Laki - Laki</option>
+                                <option value="female">Perempuan</option>
+                            </select>
                         </div>
                     </div>
                     <div>
                         <p class="input_label">Email</p>
-                        <input type="text">
+                        <input type="text" name="email" required>
                     </div>
                     <div class="input_dual">
                         <div>
                             <p class="input_label">Kata Sandi</p>
-                            <input type="password">
+                            <input type="password" name="password" required>
                         </div>
                         <div>
                             <p class="input_label">Konfirmasi Kata Sandi</p>
-                            <input type="password">
+                            <input type="password" name="confirmPassword" required>
                         </div>
                     </div>
                     <div>
                         <p class="input_label">Alamat Lengkap</p>
-                        <textarea type="text"></textarea>
+                        <textarea type="text" name="address" required></textarea>
                     </div>
-                </form>
-                <a href="">
-                    <div class="auth_button">
+                    <button type="submit" class="auth_button">
                         <p>Daftar</p>
-                    </div>
-                </a>
+                    </button>
+                </form>
             </div>
 
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
-            integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
-            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+        <script>
+            const BASE_URL = "<?php echo base_url() ?>"
+        </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
     </body>
 </html>
