@@ -38,25 +38,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
             <div class="auth_form">
-                <form action="">
+                <form action="" id="signin_form">
                     <p class="input_label">Email</p>
-                    <input type="text">
+                    <input type="text" id="input_email">
 
                     <p class="input_label">Kata Sandi</p>
-                    <input type="password">
+                    <input type="password" id="input_password">
                 </form>
-                <a href="">
-                    <div class="auth_button">
-                        <p>Masuk</p>
-                    </div>
-                </a>
+                 <div class="auth_button" id="submit_signin">
+                    <p>Masuk</p>
+                 </div>
             </div>
 
         </div>
-        <script
-            src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
-            integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
-            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+        <script>
+            const API_URL = "<?php echo base_url() ?>api"
+        </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
     </body>
 </html>

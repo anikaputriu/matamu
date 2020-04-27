@@ -39,7 +39,7 @@ class BlindTest_C extends CI_Controller {
     public function submit(){
         validateToken($this->input->request_headers());
 
-//        $userId = $this->input->post("userId");
+        $userId = $this->input->post("userId");
         $answers = $this->input->post("answers");
 
         //create array ids, from user answers
