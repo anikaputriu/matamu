@@ -5,6 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <html>
     <head>
+        <script>
+            if(localStorage.getItem("token")){
+                window.location.href = "<?php echo base_url() ?>";
+            }
+        </script>
         <title>Matamu</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
@@ -40,10 +45,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="auth_form">
                 <form action="" id="signin_form">
                     <p class="input_label">Email</p>
-                    <input type="text" name="email">
+                    <input type="text" name="email" required>
 
                     <p class="input_label">Kata Sandi</p>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                     <button type="submit" class="auth_button">
                         <p>Masuk</p>
                     </button>
