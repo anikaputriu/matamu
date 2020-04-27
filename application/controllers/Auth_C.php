@@ -49,7 +49,6 @@ class Auth_C extends CI_Controller {
             "uid" => $user["id"],
             "firstName" => $user["firstName"],
             "lastName" => $user["lastName"],
-            "exp" => $_SERVER['REQUEST_TIME'],
         );
 
         try{

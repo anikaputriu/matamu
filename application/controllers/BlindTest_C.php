@@ -11,7 +11,7 @@ class BlindTest_C extends CI_Controller {
     }
 
     public function getTest(){
-        //TODO middleware validate token
+        validateToken($this->input->request_headers());
 
         $limit = 10;
 
@@ -37,7 +37,7 @@ class BlindTest_C extends CI_Controller {
     }
 
     public function submit(){
-        //TODO middleware validate token
+        validateToken($this->input->request_headers());
 
 //        $userId = $this->input->post("userId");
         $answers = $this->input->post("answers");
