@@ -5,7 +5,7 @@ class BlindTest_M extends CI_Model {
 
     public function getBlindTestRand($limit)
     {
-        $this->db->limit(10);
+        $this->db->limit($limit);
         $this->db->order_by("RAND()");
         return $this->db->get("blindTests")->result_array();
     }

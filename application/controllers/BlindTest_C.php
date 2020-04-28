@@ -13,7 +13,7 @@ class BlindTest_C extends CI_Controller {
     public function getTest(){
         validateToken($this->input->request_headers());
 
-        $limit = 10;
+        $limit = 2;
 
         try{
             $blindTests = $this->BlindTest_M->getBlindTestRand($limit);
@@ -95,13 +95,13 @@ class BlindTest_C extends CI_Controller {
 
         $results = $this->BlindTest_M->getBlindTestResultById($decodeToken->uid, $id);
 
-        $constructResults = array();
-        foreach ($results as $value){
-            $result = json_decode($value["answers"]);
-            array_push($constructResults, $result);
+        if (count($results) === 0 ){
+            httpResponse(false, "", "result not found", 404);
         }
+        $result = $results[0];
 
-        httpResponse(true, $constructResults, "" , 200);
+        $result = json_decode($result["answers"]);
+        httpResponse(true, $result, "" , 200);
     }
 
     public function getBlindTestResults(){

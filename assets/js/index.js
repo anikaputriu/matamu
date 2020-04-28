@@ -140,7 +140,7 @@ const submitBlindTestRequest = async (objArr) => {
 }
 
 const getBlindTestResultByIdRequest = async (id) => {
-    return await newRequestAPI("POST", `/blind_test/result/${id}`, formData, getToken())
+    return await newRequestAPI("GET", `/blind_test/result/${id}`, {}, getToken())
 }
 
 // end - client api ==========================

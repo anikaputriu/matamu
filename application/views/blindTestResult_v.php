@@ -40,23 +40,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="result">
                     <p class="result_title">Hasil</p>
                     <div id="result_no">
-                        <p>10/15</p>
+                        <p>
+                            <span id="correct_total">...</span>
+                            /
+                            <span id="total_no">...</span>
+                        </p>
                     </div>
-                    <table>
+                    <table id="result_table">
                         <tr>
                             <th>Nomor</th>
                             <th>Jawaban</th>
                             <th>Keterangan</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>9</td>
-                            <td>Benar</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>Salah</td>
                         </tr>
                     </table>
                     <p class="result_description">Hm, masih ada yang salah. Kayanya kamu perlu cek mata kamu deh.
@@ -117,5 +111,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 setUsername()
             })
         </script>
+        <script src="<?php echo base_url() ?>assets/js/blindTestResult.js"></script>
     </body>
 </html>
