@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2020 at 06:29 PM
+-- Generation Time: Apr 28, 2020 at 06:44 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -25,20 +25,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blindTest`
+-- Table structure for table `blindTestResults`
 --
 
-CREATE TABLE `blindTest` (
+CREATE TABLE `blindTestResults` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `answers` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blindTestResults`
+--
+
+INSERT INTO `blindTestResults` (`id`, `userId`, `answers`) VALUES
+(1, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(2, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(3, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(4, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(5, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(6, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true}]'),
+(7, 24, '[{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false}]'),
+(8, 24, '[{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false}]'),
+(9, 24, '[{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false}]'),
+(10, 24, '[{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false}]'),
+(11, 24, '[{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"32\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false}]'),
+(12, 24, '[{\"answer\":\"4\",\"isTrue\":true},{\"answer\":\"5\",\"isTrue\":true},{\"answer\":\"6\",\"isTrue\":true},{\"answer\":\"7\",\"isTrue\":true},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"9\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true}]'),
+(13, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"12\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"4\",\"isTrue\":false},{\"answer\":\"2\",\"isTrue\":false}]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blindTests`
+--
+
+CREATE TABLE `blindTests` (
   `id` int(11) NOT NULL,
   `filePath` varchar(50) NOT NULL,
   `answer` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `blindTest`
+-- Dumping data for table `blindTests`
 --
 
-INSERT INTO `blindTest` (`id`, `filePath`, `answer`) VALUES
+INSERT INTO `blindTests` (`id`, `filePath`, `answer`) VALUES
 (1, '1.PNG', 2),
 (2, '2.PNG', 9),
 (3, '3.PNG', 8),
@@ -100,16 +131,25 @@ INSERT INTO `users` (`id`, `firstName`, `lastName`, `phoneNumber`, `gender`, `em
 (21, 'hafiz', 'jon', '123', 'male', 'tetew', '$2y$10$sqomBvHK.4mpgXuL5tBNOObACRbnf.bRrhw3zd4zBsaJQJpKVRfza', 'bumi'),
 (22, 'hafiz', 'jon', '123', 'male', 'anikaanika@gmail.com', '$2y$10$vkn6H.1kzEeFWzMqfLI7HuCNJTcBDN/3WZ3LdmilPoz0swMtwqmmq', 'bumi'),
 (23, 'hafiz', 'jon', '123', 'male', 'anikaanika@gmail.com', '$2y$10$RDg8CY14lAl46/Sg3tsDWuRXLGc9I3jOc7uC9R38urTBJA8O07U2S', 'bumi'),
-(24, 'hafiz', 'jon', '123', 'male', 'testing@gmail.com', '$2y$10$.795NtIWR8b/I7yRQr9zQeWKZl4gsZyuEImnTrxq6VB6m74POahVO', 'bumi');
+(24, 'hafiz', 'jon', '123', 'male', 'testing@gmail.com', '$2y$10$.795NtIWR8b/I7yRQr9zQeWKZl4gsZyuEImnTrxq6VB6m74POahVO', 'bumi'),
+(25, 'abc', 'abc', '081280742772', 'male', 'testing@gmail.com', '$2y$10$K7aC1Ruja62dS6/N3Cmbn.q9SWWXc446j8lYehFBT5KnU1pqXCd26', 'sdfdf'),
+(26, 'hafiz', 'joundy', '081280742772', 'male', 'a@a.com', '$2y$10$VNiu8m/iLPC0bvEX3n8xx.dMQHU15kWLOiKXq8IdGlkNQRlv07gfq', 'testing alamat'),
+(27, 'sdf', 'sdf', 'sdf', 'female', 'testing@gmail.com', '$2y$10$jO8up2nhD6C4psLrC662yuD2PidAOSkEgFNdNIKkJOgRu.P87apkG', 'abc');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `blindTest`
+-- Indexes for table `blindTestResults`
 --
-ALTER TABLE `blindTest`
+ALTER TABLE `blindTestResults`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blindTests`
+--
+ALTER TABLE `blindTests`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -123,16 +163,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `blindTest`
+-- AUTO_INCREMENT for table `blindTestResults`
 --
-ALTER TABLE `blindTest`
+ALTER TABLE `blindTestResults`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `blindTests`
+--
+ALTER TABLE `blindTests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
