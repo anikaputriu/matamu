@@ -13,8 +13,7 @@ class BlindTest_C extends CI_Controller {
     public function getTest(){
         validateToken($this->input->request_headers());
 
-        $limit = 2;
-
+        $limit = 10;
         try{
             $blindTests = $this->BlindTest_M->getBlindTestRand($limit);
         }
