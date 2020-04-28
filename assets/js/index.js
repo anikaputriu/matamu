@@ -1,6 +1,16 @@
 // utils ==========================
 
-const ajaxPromise = (type, url, data) => {
+const ajaxPromise = (type, url, data, token = "") => {
+
+    let headers = {}
+
+    if(token !== ""){
+        headers = {
+            ...headers,
+            'Authorization': `Bearer ${token}`
+        }
+    }
+
     return new Promise((resolve, reject) => {
         $.ajax({
             type: type,
@@ -13,15 +23,18 @@ const ajaxPromise = (type, url, data) => {
                 reject(err)
             },
             processData: false,
-            contentType: false
+            contentType: false,
+            headers: {
+                ...headers
+            }
         });
     })
 }
 
-const newRequestAPI = async (type, url, data) => {
+const newRequestAPI = async (type, url, data, token = "") => {
     return new Promise(async (resolve, reject) => {
         try{
-            res = await ajaxPromise(type, `${BASE_URL}api/${url}`, data)
+            res = await ajaxPromise(type, `${BASE_URL}api/${url}`, data, token)
             resolve(res)
         }
         catch(e){
@@ -44,8 +57,8 @@ const newRequestAPI = async (type, url, data) => {
 const objToFromData = (obj) => {
     let formData = new FormData();
 
-    for ( var key in obj ) {
-        formData.append(key, obj[key]);
+    for (let key in obj) {
+        formData.append(key, obj[key])
     }
 
     return formData
@@ -64,6 +77,20 @@ const serializeArrToObj = (serializeArr) => {
     return data
 }
 
+const getToken = () => {
+    return localStorage.getItem("token")
+}
+
+const parseToken = () => {
+    let token = localStorage.getItem("token")
+    const split = token.split(".")
+    token = split[1]
+    token = atob(token)
+    token = JSON.parse(token)
+
+    return token
+}
+
 // end utils ==========================
 
 // client api ==========================
@@ -71,25 +98,49 @@ const serializeArrToObj = (serializeArr) => {
 //not pass form directly
 //construct form to new object to maintain consistency
 
-const signinRequest = async (form) => {
+const signinRequest = async (obj) => {
     formData = objToFromData({
-        email: form.email,
-        password: form.password
+        email: obj.email,
+        password: obj.password
     })
     return await newRequestAPI("POST", "/auth/signin", formData)
 }
 
-const signupRequest = async (form) => {
+const signupRequest = async (obj) => {
     formData = objToFromData({
-        firstName: form.firstName,
-        lastName: form.lastName,
-        phoneNumber: form.phoneNumber,
-        gender: form.gender,
-        email: form.email,
-        password: form.password,
-        address: form.address
+        firstName: obj.firstName,
+        lastName: obj.lastName,
+        phoneNumber: obj.phoneNumber,
+        gender: obj.gender,
+        email: obj.email,
+        password: obj.password,
+        address: obj.address
     })
     return await newRequestAPI("POST", "/auth/signup", formData)
+}
+
+const getBlindTestRequest = async () => {
+    return await newRequestAPI("GET", "/blind_test", {}, getToken())
+}
+
+const submitBlindTestRequest = async (objArr) => {
+    answers = []
+    for (let key in objArr) {
+        answers.push({
+            id: objArr[key].id,
+            answer: objArr[key].answer
+        })
+    }
+
+    formData = objToFromData({
+        answers: JSON.stringify(answers)
+    })
+
+    return await newRequestAPI("POST", "/blind_test/submit", formData, getToken())
+}
+
+const getBlindTestResultByIdRequest = async (id) => {
+    return await newRequestAPI("POST", `/blind_test/result/${id}`, formData, getToken())
 }
 
 // end - client api ==========================
@@ -120,3 +171,16 @@ $('#signup_form').submit(function(e) {
         redirect("signin")
     })
 })
+
+//logout
+const logout = () => {
+    localStorage.removeItem("token")
+    redirect("signin")
+}
+
+//setUsername
+const setUsername = () => {
+    data = parseToken()
+    username = data.firstName
+    $("#username").text(username)
+}

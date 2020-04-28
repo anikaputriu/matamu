@@ -23,14 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div>
             </div>
             <div class="right_section">
-                <a href="<?php echo base_url() ?>signup">
+                <a onclick="logout()">
                     <div class="button_no_fill">
-                        <p>Daftar</p>
+                        <p>Logout</p>
                     </div>
                 </a>
-                <a href="<?php echo base_url() ?>signin">
-                    <div class="button_fill">
-                        <p>Masuk</p>
+                <a>
+                    <div class="button_no_fill">
+                        <p id="username"></p>
                     </div>
                 </a>
             </div>
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Pulangnya mampir beli jamu</p>
                     <a href="<?php echo base_url() ?>blind_test" onclick="return confirm('Udah siap?, berisikan 10 soal untuk mengetest rabun mata');">
                         <div class="button_fill">
-                            <p>Masuk</p>
+                            <p>Mulai</p>
                         </div>
                     </a>
                 </div>
@@ -157,5 +157,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             const BASE_URL = "<?php echo base_url() ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
+        <script>
+            $( document ).ready(() => {
+                setUsername()
+            })
+        </script>
     </body>
 </html>

@@ -485,9 +485,12 @@ textarea{
 #blind_test_image{
     width: 500px;
     height: 500px;
-    background-color: black;
+    background-color: #eaeaea;
     margin-bottom: 60px;
     border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .blind_test > .button_fill{

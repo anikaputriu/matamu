@@ -23,14 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div>
             </div>
             <div class="right_section">
-                <a href="<?php echo base_url() ?>signup">
+                <a onclick="logout()">
                     <div class="button_no_fill">
-                        <p>Daftar</p>
+                        <p>Logout</p>
                     </div>
                 </a>
-                <a href="<?php echo base_url() ?>signin">
-                    <div class="button_fill">
-                        <p>Masuk</p>
+                <a>
+                    <div class="button_no_fill">
+                        <p id="username"></p>
                     </div>
                 </a>
             </div>
@@ -109,7 +109,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
         <script>
             const BASE_URL = "<?php echo base_url() ?>"
+            const RESULT_ID = "<?php echo $resultId ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
+        <script>
+            $( document ).ready(() => {
+                setUsername()
+            })
+        </script>
     </body>
 </html>

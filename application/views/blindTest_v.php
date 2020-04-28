@@ -23,14 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div>
             </div>
             <div class="right_section">
-                <a href="<?php echo base_url() ?>signup">
+                <a onclick="logout()">
                     <div class="button_no_fill">
-                        <p>Daftar</p>
+                        <p>Logout</p>
                     </div>
                 </a>
-                <a href="<?php echo base_url() ?>signin">
-                    <div class="button_fill">
-                        <p>Masuk</p>
+                <a>
+                    <div class="button_no_fill">
+                        <p id="username"></p>
                     </div>
                 </a>
             </div>
@@ -47,14 +47,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="right_section">
                     <div class="blind_test">
                         <p id="blind_test_no">
-                            <span id="current_no">1</span>
+                            <span id="current_no">...</span>
                             /
-                            <span id="total_no">15</span>
+                            <span id="total_no">...</span>
                         </p>
                         <div id="blind_test_image"></div>
-                        <input type="text" placeholder="Tulis angkanya di sini">
-                        <div class="button_fill" onclick="window.location.href = '<?php echo base_url() ?>blind_test/result'">
-                            <p>Submit</p>
+                        <input type="text" placeholder="Tulis angkanya di sini" id="answer">
+                        <div class="button_fill" id="next_image">
+                            <p id="button_next">Lanjut</p>
                         </div>
                     </div>
                 </div>
@@ -102,5 +102,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             const BASE_URL = "<?php echo base_url() ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
+        <script>
+            $( document ).ready(() => {
+                setUsername()
+            })
+        </script>
+        <script src="<?php echo base_url() ?>assets/js/blindTest.js"></script>
     </body>
 </html>

@@ -6,6 +6,7 @@ class User_M extends CI_Model {
     public function createUser($user)
     {
         $this->db->insert('users', $user);
+        return $this->db->insert_id();
     }
 
     public function getUserByEmail($email)

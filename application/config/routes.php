@@ -62,6 +62,8 @@ $route['api/auth/signup']['post'] = 'auth_c/signup';
 
 $route['api/blind_test']['get'] = 'blindTest_c/getTest';
 $route['api/blind_test/submit']['post'] = 'blindTest_c/submit';
+$route['api/blind_test/results']['get'] = 'blindTest_c/getBlindTestResults';
+$route['api/blind_test/result/(:any)']['get'] = 'blindTest_c/getBlindTestResultById/$1';
 /*
  * [END - API]
  */
@@ -74,6 +76,7 @@ $route['signup']['get'] = 'auth_c/signup_v';
 
 $route['blind_test']['get'] = 'blindTest_c/blindTest_v';
 $route['blind_test/result']['get'] = 'blindTest_c/result_v';
+$route['blind_test/result/(:any)']['get'] = 'blindTest_c/result_v/$1';
 /*
  * [END - VIEW]
  */
