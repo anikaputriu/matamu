@@ -35,7 +35,7 @@ class Auth_C extends CI_Controller {
 
 
         if(count($users) === 0){
-            //use message "email or password error" instead of "user not found" for security.
+            //use message "email or password error" instead of "user not found" for security reason.
             httpResponse(false, "", "email or password error", 401);
         }
         $user = $users[0];

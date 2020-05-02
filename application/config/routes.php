@@ -64,6 +64,10 @@ $route['api/blind_test']['get'] = 'blindTest_c/getTest';
 $route['api/blind_test/submit']['post'] = 'blindTest_c/submit';
 $route['api/blind_test/results']['get'] = 'blindTest_c/getBlindTestResults';
 $route['api/blind_test/result/(:any)']['get'] = 'blindTest_c/getBlindTestResultById/$1';
+
+$route['api/checkup/submit']['post'] = 'checkup_c/submit';
+$route['api/checkup/results']['get'] = 'checkup_c/getCheckups';
+$route['api/checkup/result/(:any)']['delete'] = 'checkup_c/deleteById/$1';
 /*
  * [END - API]
  */
@@ -80,8 +84,8 @@ $route['blind_test/result/(:any)']['get'] = 'blindTest_c/result_v/$1';
 
 $route['history/(:any)']['get'] = 'history_c/history_v/$1';
 
-$route['checkup/list/(:any)']['get'] = 'checkup_c/checkup_v/$1';
-$route['checkup']['get'] = 'checkup_c/checkup_sv';
+$route['checkup/results']['get'] = 'checkup_c/results_v';
+$route['checkup']['get'] = 'checkup_c/checkup_v';
 /*
  * [END - VIEW]
  */

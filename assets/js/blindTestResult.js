@@ -1,8 +1,8 @@
 const blindTestResult = async () => {
     const result = await getBlindTestResultByIdRequest(RESULT_ID)
 
-    resultToTable = ""
-    correctTotal = 0
+    let resultToTable = ""
+    let correctTotal = 0
     for (let key in result.data){
         if(result.data[key].isTrue){
             correctTotal++
@@ -31,3 +31,4 @@ const blindTestResult = async () => {
 $( document ).ready(() => {
     blindTestResult()
 })
+

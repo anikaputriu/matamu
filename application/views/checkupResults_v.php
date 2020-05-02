@@ -45,32 +45,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </ul>
   </div>
 </nav>
-        </div>
         <div id="main">
-
-            <div class="title">
-                <p class="main_title">Checkup Sekarang</p>
+            <div class="section section_blind_test_result">
+                <div class="result">
+                    <p class="result_title">Checkup</p>
+                    <table id="results_checkup_table">
+                        <tr>
+                            <th>Nomor</th>
+                            <th>Date Submitted</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
-
-            <div class="auth_form">
-                <form action="" id="checkup_form">
-                    <input type="hidden" value="<?php echo '28' ?>">
-                    <p class="input_label">Date Submitted</p>
-                    <input type="date" name="date_submitted" required>
-
-                    <p class="input_label">Description</p>
-                    <input type="text" name="description" required>
-                    <button type="submit" class="auth_button">
-                        <p>Simpan</p>
-                    </button>
-                </form>
+        </div>
+        <div id="footer">
+            <div class="footer_section">
+                <div class="left_section">
+                    <div class="logo">
+                        <div class="logo_image" style="background-image: url('<?php echo base_url() ?>assets/images/logo_footer.svg')"></div>
+                        <div class="logo_text">Mata.mu</div>
+                    </div>
+                    <p>Selalu Peduli denganmu</p>
+                </div>
+                <div class="right_section">
+                    <div class="footer_main">
+                        <div>
+                            <p class="title">Menu</p>
+                            <a href="">Tes Mata</a>
+                            <a href="">Artikel</a>
+                            <a href="">Tanya Bot</a>
+                        </div>
+                        <div>
+                            <p class="title">Tentang</p>
+                            <a href="">Tentang Mata.mu</a>
+                            <a href="">FAQ</a>
+                        </div>
+                        <div>
+                            <p class="title">Tentang</p>
+                            <a href="">Tentang Mata.mu</a>
+                            <a href="">FAQ</a>
+                        </div>
+                        <div>
+                            <p class="title">Kontak Kami</p>
+                            <a href="">081487457836</a>
+                            <a href="">matam.mu@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+            <p>Copyright 2020 Mata.mu . All Rights Reserved</p>
         </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
         <script>
             const BASE_URL = "<?php echo base_url() ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
+        <script>
+            $( document ).ready(() => {
+                setUsername()
+            })
+        </script>
+        <script src="<?php echo base_url() ?>assets/js/checkupResults.js"></script>
     </body>
 </html>

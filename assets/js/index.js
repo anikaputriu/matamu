@@ -143,8 +143,23 @@ const getBlindTestResultByIdRequest = async (id) => {
     return await newRequestAPI("GET", `/blind_test/result/${id}`, {}, getToken())
 }
 
-// end - client api ==========================
+const checkupRequest = async (obj) => {
+    formData = objToFromData({
+        dateSubmitted: obj.dateSubmitted,
+        description: obj.description
+    })
+    return await newRequestAPI("POST", "checkup/submit", formData, getToken())
+}
 
+const getCheckupResultsRequest = async (id) => {
+    return await newRequestAPI("GET", `/checkup/results`, {}, getToken())
+}
+
+const deleteCheckupByIdRequest = async (id) => {
+    return await newRequestAPI("DELETE", `/checkup/result/${id}`, {}, getToken())
+}
+
+// end - client api ==========================
 
 // signin
 $('#signin_form').submit(function(e) {
@@ -172,16 +187,6 @@ $('#signup_form').submit(function(e) {
     })
 })
 
-//checkup
-// $('#checkup_form').submit(function(e) {
-//     e.preventDefault()
-//     form = serializeArrToObj($(this).serializeArray())
-
-//     signupRequest(form).then((res) => {
-//         redirect("checkup")
-//     })
-// })
-
 //logout
 const logout = () => {
     localStorage.removeItem("token")
@@ -194,3 +199,14 @@ const setUsername = () => {
     username = data.firstName
     $("#username").text(username)
 }
+
+
+// checkup
+$('#checkup_form').submit(function(e) {
+    e.preventDefault()
+    form = serializeArrToObj($(this).serializeArray())
+
+    checkupRequest(form).then((res) => {
+        redirect("checkup/results")
+    })
+})

@@ -38,7 +38,7 @@ if ( ! function_exists('utils')) {
         $authorization = $headers["Authorization"];
         $split = explode(" ", $authorization);
 
-        if (count($split) == 0){
+        if (count($split) == 1 || count($split) == 0){
             httpResponse(false, "", "token invalid", 401);
         }
 

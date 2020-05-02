@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use \Firebase\JWT\JWT;
-$dotenv = Dotenv\Dotenv::createImmutable(BASEPATH."../");
-$dotenv->load();
-
 class History_C extends CI_Controller {
 
 	public function __construct()
