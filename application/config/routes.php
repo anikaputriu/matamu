@@ -79,10 +79,8 @@ $route['signin']['get'] = 'auth_c/signin_v';
 $route['signup']['get'] = 'auth_c/signup_v';
 
 $route['blind_test']['get'] = 'blindTest_c/blindTest_v';
-$route['blind_test/result']['get'] = 'blindTest_c/result_v';
 $route['blind_test/result/(:any)']['get'] = 'blindTest_c/result_v/$1';
-
-$route['history/(:any)']['get'] = 'history_c/history_v/$1';
+$route['blind_test/results']['get'] = 'blindTest_c/results_v';
 
 $route['checkup/results']['get'] = 'checkup_c/results_v';
 $route['checkup']['get'] = 'checkup_c/checkup_v';

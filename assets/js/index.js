@@ -143,6 +143,10 @@ const getBlindTestResultByIdRequest = async (id) => {
     return await newRequestAPI("GET", `/blind_test/result/${id}`, {}, getToken())
 }
 
+const getBlindTestResultsRequest = async () => {
+    return await newRequestAPI("GET", `/blind_test/results`, {}, getToken())
+}
+
 const checkupRequest = async (obj) => {
     formData = objToFromData({
         dateSubmitted: obj.dateSubmitted,

@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class="nav-link" href="<?php echo base_url() ?>">Test Mata</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() ?>history/3">History</a>
+        <a class="nav-link" href="<?php echo base_url() ?>blind_test/results">History</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url() ?>checkup">Checkup</a>
@@ -64,29 +64,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
             </div>
         </div> -->
+
         <div id="main">
-            <div class="section section_blind_test_result">
-                <div class="result">
-                    <p class="result_title">History</p>
-                    <table id="result_table">
-                        <tr>
-                            <th>Nomor</th>
-                            <th>Jawaban Benar</th>
-                            <th>Jawaban Salah</th>
-                        </tr>
-                        <?php 
-                        for ($i=0; $i < count($jawabanBenarList) ; $i++) { 
-                            echo '
-                            <tr>
-                            <td>'.($i + 1).'</td>
-                            <td>'.$jawabanBenarList[$i].'</td>
-                            <td>'.$jawabanSalahList[$i].'</td>
-                            </tr>
-                            ';
-                        }
-                        ?>
-                    </table>
-                </div>
+            <div class="section_title">
+                <p class="main_title">History</p>
+<!--                <p class="sub_title">Tututu bunyi tukang kue putu<br/>-->
+<!--                    Hm, ada apa aja ya di Mata.mu?</p>-->
+            </div>
+            <div id="section_results_blindTest">
+
             </div>
         </div>
         <div id="footer">
@@ -136,5 +122,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 setUsername()
             })
         </script>
+    <script src="<?php echo base_url() ?>assets/js/blindTestResults.js"></script>
     </body>
 </html>

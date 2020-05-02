@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class="nav-link" href="<?php echo base_url() ?>">Test Mata</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() ?>history/3">History</a>
+        <a class="nav-link" href="<?php echo base_url() ?>blind_test/results">History</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url() ?>checkup">Checkup</a>

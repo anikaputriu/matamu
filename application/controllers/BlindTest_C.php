@@ -108,7 +108,15 @@ class BlindTest_C extends CI_Controller {
 
         $results = $this->BlindTest_M->getBlindTestResults($decodeToken->uid);
 
-        var_dump($results);
+        $resultsConstruct = array();
+
+        foreach ($results as $value){
+            array_push($resultsConstruct, array(
+                "result" => json_decode($value["answers"])
+            ));
+        }
+
+        httpResponse(true, $resultsConstruct, "" , 200);
     }
 
     public function blindTest_v(){
@@ -120,5 +128,9 @@ class BlindTest_C extends CI_Controller {
             'resultId' => $id,
         );
         $this->load->view("blindTestResult_v", $data);
+    }
+
+    public function results_v(){
+        $this->load->view("blindTestResults_v");
     }
 }
