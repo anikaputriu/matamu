@@ -33,43 +33,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url() ?>checkup">Checkup</a>
-      </li>
+      </li>      
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item">
-        <a class="nav-link"><p id="username"></p></a>
-      </li>
       </li><li class="nav-item">
         <a onclick="logout()" class="nav-link">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
+        <!-- <div id="header">
+            <div class="left_section">
+                <div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"><a href="<?php echo base_url() ?>"></a></div>
+            </div>
+            <div class="right_section">
+                <a onclick="logout()">
+                    <div class="button_no_fill">
+                        <p>Logout</p>
+                    </div>
+                </a>
+                <a>
+                    <div class="button_no_fill">
+                        <p id="username"></p>
+                    </div>
+                </a>
+                <a>
+                    <div class="button_no_fill">
+                        <p>History</p>
+                    </div>
+                </a>
+            </div>
+        </div> -->
         <div id="main">
             <div class="section section_blind_test_result">
                 <div class="result">
-                    <p class="result_title">Hasil</p>
-                    <div id="result_no">
-                        <p>
-                            <span id="correct_total">...</span>
-                            /
-                            <span id="total_no">...</span>
-                        </p>
-                    </div>
+                    <p class="result_title">History</p>
                     <table id="result_table">
                         <tr>
                             <th>Nomor</th>
-                            <th>Jawaban</th>
-                            <th>Keterangan</th>
+                            <th>Jawaban Benar</th>
+                            <th>Jawaban Salah</th>
                         </tr>
+                        <?php 
+                        for ($i=0; $i < count($jawabanBenarList) ; $i++) { 
+                            echo '
+                            <tr>
+                            <td>'.($i + 1).'</td>
+                            <td>'.$jawabanBenarList[$i].'</td>
+                            <td>'.$jawabanSalahList[$i].'</td>
+                            </tr>
+                            ';
+                        }
+                        ?>
                     </table>
-                    <p class="result_description">Hm, masih ada yang salah. Kayanya kamu perlu cek mata kamu deh.
-                        Oiya bisa sambil nanya-nanya dulu ke Mumu kalo bingung ya!</p>
-                    <a href="<?php echo base_url() ?>blind_test">
-                        <div class="button_fill">
-                            <p>Tes Kembali</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -113,7 +129,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
         <script>
             const BASE_URL = "<?php echo base_url() ?>"
-            const RESULT_ID = "<?php echo $resultId ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
         <script>
@@ -121,6 +136,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 setUsername()
             })
         </script>
-        <script src="<?php echo base_url() ?>assets/js/blindTestResult.js"></script>
     </body>
 </html>

@@ -48,28 +48,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="main">
             <div class="section section_blind_test_result">
                 <div class="result">
-                    <p class="result_title">Hasil</p>
-                    <div id="result_no">
-                        <p>
-                            <span id="correct_total">...</span>
-                            /
-                            <span id="total_no">...</span>
-                        </p>
-                    </div>
+                    <p class="result_title">Checkup</p>
                     <table id="result_table">
                         <tr>
                             <th>Nomor</th>
-                            <th>Jawaban</th>
-                            <th>Keterangan</th>
+                            <th>Date Submitted</th>
+                            <th>Description</th>
+                            <th>Delete</th>
                         </tr>
+                        <?php 
+                        foreach ($checkupList as $key => $value) {
+                            echo '
+                            <tr>
+                            <td>'.$value["id"].'</td>
+                            <td>'.$value["date_submitted"].'</td>
+                            <td>'.$value["description"].'</td>
+                            <td><a class="nav-link" href="'.base_url().'/checkup/delete/'.$value["id"].'">Delete</a></td>
+                            </tr>
+                            ';
+                        }
+                        ?>
                     </table>
-                    <p class="result_description">Hm, masih ada yang salah. Kayanya kamu perlu cek mata kamu deh.
-                        Oiya bisa sambil nanya-nanya dulu ke Mumu kalo bingung ya!</p>
-                    <a href="<?php echo base_url() ?>blind_test">
-                        <div class="button_fill">
-                            <p>Tes Kembali</p>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -113,7 +112,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
         <script>
             const BASE_URL = "<?php echo base_url() ?>"
-            const RESULT_ID = "<?php echo $resultId ?>"
         </script>
         <script src="<?php echo base_url() ?>assets/js/index.js"></script>
         <script>
@@ -121,6 +119,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 setUsername()
             })
         </script>
-        <script src="<?php echo base_url() ?>assets/js/blindTestResult.js"></script>
     </body>
 </html>

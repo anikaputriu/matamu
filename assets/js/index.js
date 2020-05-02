@@ -172,6 +172,16 @@ $('#signup_form').submit(function(e) {
     })
 })
 
+//checkup
+// $('#checkup_form').submit(function(e) {
+//     e.preventDefault()
+//     form = serializeArrToObj($(this).serializeArray())
+
+//     signupRequest(form).then((res) => {
+//         redirect("checkup")
+//     })
+// })
+
 //logout
 const logout = () => {
     localStorage.removeItem("token")

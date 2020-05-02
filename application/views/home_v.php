@@ -14,27 +14,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/style/index.css">
     </head>
     <body>
-
-        <div id="header">
-            <div class="left_section">
-                <div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div>
-            </div>
-            <div class="right_section">
-                <a onclick="logout()">
-                    <div class="button_no_fill">
-                        <p>Logout</p>
-                    </div>
-                </a>
-                <a>
-                    <div class="button_no_fill">
-                        <p id="username"></p>
-                    </div>
-                </a>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="<?php echo base_url() ?>"><div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div></a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>">Test Mata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>history/3">History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>checkup">Checkup</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item">
+        <a class="nav-link"><p id="username"></p></a>
+      </li>
+      </li><li class="nav-item">
+        <a onclick="logout()" class="nav-link">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
         <div id="main">
             <div class="section section_banner">
                 <div class="left_section">
@@ -78,12 +88,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="feature">
                         <div class="feature_logo" style="background-image: url('<?php echo base_url() ?>assets/images/feature_ask_bot_logo.svg')"></div>
-                        <p class="main_title">Tanya Bot</p>
-                        <p class="sub_title">24/7 banget dalam menjawab pertanyaan kamu seputar mata</p>
+                        <p class="main_title">Checkup</p>
+                        <p class="sub_title">Mu;ai peduli dengan riwayat kesehatan mata kamu</p>
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div class="section section_article">
                 <div class="section_title">
                     <p class="main_title">Artikel</p>
@@ -111,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>Lainya</p>
                     </div>
                 </a>
-            </div>
+            </div> -->
 
 <!--            <div class="section section_ask_bot"></div>-->
         </div>

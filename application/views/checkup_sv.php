@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
     <head>
         <script>
-            if(localStorage.getItem("token")){
-                window.location.href = "<?php echo base_url() ?>";
+            if(localStorage.getItem("token") === null){
+                window.location.href = "<?php echo base_url() ?>signin";
             }
         </script>
         <title>Matamu</title>
@@ -25,15 +25,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand" href="<?php echo base_url() ?>"><div id="logo" style="background-image: url('<?php echo base_url() ?>assets/images/logo.svg')"></div></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-<!--       <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url() ?>">Test Mata</a>
-      </li> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>history/3">History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url() ?>checkup">Checkup</a>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() ?>signup">Daftar</a>
+        <a class="nav-link"><p id="username"></p></a>
+      </li>
       </li><li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() ?>signin">Masuk</a>
+        <a onclick="logout()" class="nav-link">Logout</a>
       </li>
     </ul>
   </div>
@@ -42,19 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="main">
 
             <div class="title">
-                <p class="main_title">Masuk</p>
-                <p class="sub_title">Hai apa kabar? Yuk cek mata kamu disini.</p>
+                <p class="main_title">Checkup Sekarang</p>
             </div>
 
             <div class="auth_form">
-                <form action="" id="signin_form">
-                    <p class="input_label">Email</p>
-                    <input type="text" name="email" required>
+                <form action="" id="checkup_form">
+                    <input type="hidden" value="<?php echo '28' ?>">
+                    <p class="input_label">Date Submitted</p>
+                    <input type="date" name="date_submitted" required>
 
-                    <p class="input_label">Kata Sandi</p>
-                    <input type="password" name="password" required>
+                    <p class="input_label">Description</p>
+                    <input type="text" name="description" required>
                     <button type="submit" class="auth_button">
-                        <p>Masuk</p>
+                        <p>Simpan</p>
                     </button>
                 </form>
             </div>
