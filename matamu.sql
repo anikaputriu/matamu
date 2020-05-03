@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2020 at 06:44 PM
+-- Generation Time: May 03, 2020 at 07:01 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.27
 
@@ -51,7 +51,12 @@ INSERT INTO `blindTestResults` (`id`, `userId`, `answers`) VALUES
 (10, 24, '[{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false},{\"answer\":\"[\",\"isTrue\":false}]'),
 (11, 24, '[{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"234\",\"isTrue\":false},{\"answer\":\"32\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false}]'),
 (12, 24, '[{\"answer\":\"4\",\"isTrue\":true},{\"answer\":\"5\",\"isTrue\":true},{\"answer\":\"6\",\"isTrue\":true},{\"answer\":\"7\",\"isTrue\":true},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"9\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true}]'),
-(13, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"12\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"4\",\"isTrue\":false},{\"answer\":\"2\",\"isTrue\":false}]');
+(13, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"12\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"34\",\"isTrue\":false},{\"answer\":\"4\",\"isTrue\":false},{\"answer\":\"2\",\"isTrue\":false}]'),
+(14, 24, '[{\"answer\":\"\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":false},{\"answer\":\"123\",\"isTrue\":false},{\"answer\":\"23\",\"isTrue\":false}]'),
+(15, 24, '[{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":false}]'),
+(16, 24, '[{\"answer\":\"1\",\"isTrue\":true},{\"answer\":\"5\",\"isTrue\":true}]'),
+(17, 24, '[{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"\",\"isTrue\":false}]'),
+(18, 24, '[{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"22\",\"isTrue\":false},{\"answer\":\"3\",\"isTrue\":true},{\"answer\":\"8\",\"isTrue\":true},{\"answer\":\"6\",\"isTrue\":true},{\"answer\":\"7\",\"isTrue\":true},{\"answer\":\"2\",\"isTrue\":false},{\"answer\":\"4\",\"isTrue\":true},{\"answer\":\"5\",\"isTrue\":true},{\"answer\":\"3\",\"isTrue\":true}]');
 
 -- --------------------------------------------------------
 
@@ -85,6 +90,27 @@ INSERT INTO `blindTests` (`id`, `filePath`, `answer`) VALUES
 (13, '13.PNG', 1),
 (14, '14.PNG', 4),
 (15, '15.PNG', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkups`
+--
+
+CREATE TABLE `checkups` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `dateSubmitted` date NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkups`
+--
+
+INSERT INTO `checkups` (`id`, `userId`, `dateSubmitted`, `description`) VALUES
+(29, 24, '0000-00-00', '2'),
+(30, 24, '0000-00-00', '2');
 
 -- --------------------------------------------------------
 
@@ -153,6 +179,12 @@ ALTER TABLE `blindTests`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `checkups`
+--
+ALTER TABLE `checkups`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -166,13 +198,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blindTestResults`
 --
 ALTER TABLE `blindTestResults`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `blindTests`
 --
 ALTER TABLE `blindTests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `checkups`
+--
+ALTER TABLE `checkups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`
