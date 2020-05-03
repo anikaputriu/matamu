@@ -273,9 +273,9 @@ textarea{
     margin-top: -430px;
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
-
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    overflow: hidden;
 }
 
 .banner_image > .image_bg{
@@ -575,4 +575,11 @@ td{
     font-style: normal;
     font-weight: 600;
     color: #44444F;
+}
+
+.carousel-item > img {
+    width: 570px !important;
+    height: 400px !important;
+    background-position: center;
+    background-repeat: no-repeat;
 }
